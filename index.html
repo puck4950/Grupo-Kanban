@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Kanban Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div style="padding: 20px;">
+    <button onclick="openModal()" class="btn-new-task">
+        + Novo Card
+    </button>
+</div>
+
+<div id="taskModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2>Cadastrar Nova Tarefa</h2>
+
+        <label>Título</label>
+        <input type="text" id="taskTitle">
+
+        <label>Descrição</label>
+        <textarea id="taskDesc"></textarea>
+
+        <label>Coluna</label>
+        <select id="taskColumn">
+
+          <option value="col-equipe1">Equipe 1</option>
+          <option value="col-equipe2">Equipe 2</option>
+          <option value="col-equipe3">Equipe 3</option>
+          <option value="col-equipe4">Equipe 4</option>
+          <option value="col-equipe5">Equipe 5</option>
+          <option value="col-equipe6">Equipe 6</option>
+          <option value="col-concluido-equipe1">Concluído - Equipe 1</option>
+          <option value="col-concluido-equipe2">Concluído - Equipe 2</option>
+          <option value="col-concluido-equipe3">Concluído - Equipe 3</option>
+          <option value="col-concluido-equipe4">Concluído - Equipe 4</option>
+          <option value="col-concluido-equipe5">Concluído - Equipe 5</option>
+          <option value="col-concluido-equipe6">Concluído - Equipe 6</option>
+
+        </select>
+
+        <label>Prioridade</label>
+        <select id="taskPriority">
+            <option value="Baixa">Baixa</option>
+            <option value="Media">Média</option>
+            <option value="Alta">Alta</option>
+        </select>
+
+        <label>Rótulo</label>
+        <select id="taskLabel">
+            <option value="Concluído">Concluído</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em Processo">Em Processo</option>
+            <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <input type="hidden" id="editCardId">
+
+        <button class="btn-save" onclick="addTask()">
+            Salvar Tarefa
+        </button>
+
+    </div>
+</div>
+
+<div class="board">
+
+    <div class="column" id="col-equipe1"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 1 - Os Historiadores do Conceito</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-equipe2"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 2 - Os Analistas de Redes Sociais</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-equipe3"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 3 - Os Observadores do Consumo</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-equipe4"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 4 - Os Psicólogos (Impactos e Danos)</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-equipe5"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 5 - Os Sociólogos (Causas e Família)</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-equipe6"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>Equipe 6 - Os Agentes de Mudança (Intervenção)</h3>
+        <div class="cards-container"></div>
+    </div>
+
+</div> <br> <br>
+
+<div class="board">
+    <div class="column" id="col-concluido-equipe1"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 1</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-concluido-equipe2"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 2</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-concluido-equipe3"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 3</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-concluido-equipe4"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 4</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-concluido-equipe5"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 5</h3>
+        <div class="cards-container"></div>
+    </div>
+
+    <div class="column" id="col-concluido-equipe6"
+         ondrop="drop(event)"
+         ondragover="allowDrop(event)">
+
+        <h3>CONCLUÍDO EQUIPE 6</h3>
+        <div class="cards-container"></div>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
